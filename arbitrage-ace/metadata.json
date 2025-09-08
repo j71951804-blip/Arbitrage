@@ -1,0 +1,5 @@
+{
+  "name": "Arbitrage Ace",
+  "description": "A sophisticated dashboard to identify, analyze, and manage arbitrage opportunities between eBay and Amazon. This application provides a user-friendly interface to track potential deals, calculate profitability, and leverage AI for risk analysis and content generation.",
+  "requestFramePermissions": []
+}
