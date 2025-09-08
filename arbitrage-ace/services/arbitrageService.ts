@@ -244,3 +244,31 @@ router.patch('/:id/status', auth, async (req, res) => {
     }
     
     res.json(opportunity);
+  } catch (error) {
+    console.error('Error updating opportunity status:', error);
+    res.status(500).json({ error: 'Failed to update opportunity status' });
+  }
+});
+
+router.delete('/:id', auth, async (req, res) => {
+  try {
+    const { id } = req.params;
+    const user = (req as any).user;
+    
+    const opportunity = await Opportunity.findOneAndDelete({
+      _id: id,
+      userId: user._id
+    });
+    
+    if (!opportunity) {
+      return res.status(404).json({ error: 'Opportunity not found' });
+    }
+    
+    res.json({ message: 'Opportunity deleted successfully' });
+  } catch (error) {
+    console.error('Error deleting opportunity:', error);
+    res.status(500).json({ error: 'Failed to delete opportunity' });
+  }
+});
+
+export { router as opportunityRoutes };
