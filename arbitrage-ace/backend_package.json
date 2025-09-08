@@ -1,0 +1,54 @@
+{
+  "backend_package.json": {
+    "name": "arbitrage-ace-backend",
+    "version": "1.0.0",
+    "description": "Backend API for Arbitrage Ace",
+    "main": "dist/server.js",
+    "scripts": {
+      "dev": "nodemon --exec ts-node src/server.ts",
+      "build": "tsc",
+      "start": "node dist/server.js",
+      "test": "jest"
+    },
+    "dependencies": {
+      "express": "^4.18.2",
+      "cors": "^2.8.5",
+      "dotenv": "^16.3.1",
+      "axios": "^1.5.0",
+      "mongoose": "^7.5.0",
+      "bcryptjs": "^2.4.3",
+      "jsonwebtoken": "^9.0.2",
+      "helmet": "^7.0.0",
+      "express-rate-limit": "^6.10.0"
+    },
+    "devDependencies": {
+      "@types/express": "^4.17.17",
+      "@types/cors": "^2.8.13",
+      "@types/bcryptjs": "^2.4.2",
+      "@types/jsonwebtoken": "^9.0.2",
+      "@types/node": "^20.5.0",
+      "nodemon": "^3.0.1",
+      "typescript": "^5.1.6",
+      "ts-node": "^10.9.1"
+    }
+  },
+  "frontend_env": "# Frontend .env.local\nVITE_API_URL=http://localhost:3001/api\nVITE_APP_NAME=Arbitrage Ace",
+  "backend_tsconfig": {
+    "compilerOptions": {
+      "target": "ES2020",
+      "module": "commonjs",
+      "lib": ["ES2020"],
+      "outDir": "./dist",
+      "rootDir": "./src",
+      "strict": true,
+      "moduleResolution": "node",
+      "allowSyntheticDefaultImports": true,
+      "esModuleInterop": true,
+      "skipLibCheck": true,
+      "forceConsistentCasingInFileNames": true,
+      "resolveJsonModule": true
+    },
+    "include": ["src/**/*"],
+    "exclude": ["node_modules", "dist"]
+  }
+}
